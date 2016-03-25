@@ -44,7 +44,7 @@
 		}
 
 		function activate() {
-			Experience.find().$promise.then(function(experiences) {
+			Experience.find({filter: {include: 'type'}}).$promise.then(function(experiences) {
 				vm.experiences = experiences;
 			});
 		}

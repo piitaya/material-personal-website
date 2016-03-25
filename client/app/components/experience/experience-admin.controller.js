@@ -4,9 +4,9 @@
 		.module('app.controllers')
 		.controller('ExperienceAdminController', ExperienceAdminController);
 
-	ExperienceAdminController.$inject = ['experienceService', 'experienceTypeService', 'dateService'];
+	ExperienceAdminController.$inject = ['Experience', 'ExperienceType', 'dateService'];
 
-	function ExperienceAdminController(experienceService, experienceTypeService, dateService) {
+	function ExperienceAdminController(Experience, ExperienceType, dateService) {
 		var vm = this;
 		
 		vm.experiences = [];
@@ -21,14 +21,14 @@
 		activate();
 
 		function activate() {
-			experienceService.query().$promise.then(function(experiences) {
+			Experience.find().$promise.then(function(experiences) {
 				vm.experiences = experiences;
 			});
-			experienceTypeService.query().$promise.then(function(types) {
+			ExperienceType.find().$promise.then(function(types) {
 				vm.types = types;
 
 				types.forEach(function(type) {
-					vm.icons[type._id] = {icon: type.icon};
+					vm.icons[type.id] = {icon: type.icon};
 				});
 			});
 		}
@@ -36,7 +36,7 @@
 		function create() {
 			vm.newExperience.startDate = dateService.getDate(vm.newExperience.startDate);
 			vm.newExperience.endDate = dateService.getDate(vm.newExperience.endDate);
-			experienceService.save(vm.newExperience).$promise.then(function(experience) {
+			Experience.create(vm.newExperience).$promise.then(function(experience) {
 				vm.experiences.push(experience);
 				vm.newExperience = { isCurrent: false };
 				$("#new-experience-form").removeClass("active");
@@ -47,15 +47,13 @@
 		function update(experience) {
 			experience.startDate = dateService.getDate(experience.startDate);
 			experience.endDate = dateService.getDate(experience.endDate);
-			experienceService.get({id: experience._id }).$promise.then(function() {
-				return experienceService.update({id: experience._id}, experience).$promise;
-			}).then(function() {
+			Experience.prototype$updateAttributes(experience).$promise.then(function() {
 				console.log("Experience updated");
 			});
 		}
 
 		function remove(experience) {
-			experienceService.remove({id: experience._id}).$promise.then(function() {
+			Experience.deleteById({id: experience._id}).$promise.then(function() {
 				var experienceIndex = vm.experiences.indexOf(experience);
 				vm.experiences.splice(experienceIndex, 1);
 				console.log("Experience removed");

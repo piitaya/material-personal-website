@@ -41,8 +41,7 @@
   "relations": {
     "type": {
       "type": "belongsTo",
-      "model": "experienceType",
-      "foreignKey": "typeId"
+      "model": "experienceType"
     }
   },
   "acls": [],

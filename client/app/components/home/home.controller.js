@@ -4,9 +4,9 @@
 		.module('app.controllers')
 		.controller('HomeController', HomeController);
 
-	HomeController.$inject = ['homeService', 'experienceService', 'dateService'];
+	HomeController.$inject = ['homeService', 'Experience', 'dateService'];
 
-	function HomeController(homeService, experienceService, dateService) {
+	function HomeController(homeService, Experience, dateService) {
 		var vm = this;
 
 		vm.collapsibleElements = homeService.getElements();
@@ -44,7 +44,7 @@
 		}
 
 		function activate() {
-			experienceService.all().$promise.then(function(experiences) {
+			Experience.find().$promise.then(function(experiences) {
 				vm.experiences = experiences;
 			});
 		}

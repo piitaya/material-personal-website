@@ -25,8 +25,13 @@
         });
     }
         
-	function config($stateProvider, $urlRouterProvider, $locationProvider) {
-		$locationProvider.html5Mode(true);
+	function config($stateProvider, $urlRouterProvider, $locationProvider, LoopBackResourceProvider) {
+		// $locationProvider.html5Mode(true);
+        
+        LoopBackResourceProvider.setAuthHeader('X-Access-Token');
+ 
+        // Change the URL where to access the LoopBack REST API server
+        LoopBackResourceProvider.setUrlBase('http://localhost:3000/api');
 
 		$stateProvider
 

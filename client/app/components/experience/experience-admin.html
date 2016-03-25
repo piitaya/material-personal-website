@@ -1,0 +1,178 @@
+<div class="container">
+	<ul class="collapsible popout" data-collapsible="accordion" watch>
+		<li ng-repeat="experience in vm.experiences">
+			<div class="collapsible-header">
+				<i class="material-icons">{{vm.getIcon(experience.type)}}</i>
+				<span class="truncate">{{experience.title}}</span>
+				<span class="right-text hide-on-med-and-down">
+					<span>{{experience.startDate | date: "shortDate"}}</span>
+					<span> - </span> 
+					<span ng-if="!experience.isCurrent">{{experience.endDate | date: "shortDate"}}</span>
+					<span ng-if="experience.isCurrent">Aujourd'hui</span>
+					<span>{{vm.duration(experience.startDate, experience.endDate, experience.isCurrent)}}</span>
+				</span>
+			</div>
+			<div class="collapsible-body card">
+				<div class="card-content">
+					<div class="row">
+						<div class="col m6 s12">
+							<div input-field>
+								<input type="text" ng-model="experience.title">
+								<label>Titre</label>
+							</div>
+						</div>
+						<div class="col m6 s12">
+							<div class="input-field">
+								<select class="" ng-model="experience.type" material-select watch>
+								    <option ng-repeat="type in vm.types" value="{{type._id}}">{{type.name}}</option>
+								</select>
+								<label>Type</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="checkbox-field col s12 m4">
+							<input type="checkbox" id="isCurrent{{$index}}" ng-model="experience.isCurrent" />
+							<label for="isCurrent{{$index}}">Experience actuelle</label>
+						</div>
+						<div class="col s6 m4">
+							<div class="input-field">
+								<label for="startDate{{index}}">Date de début</label>
+								<input input-date
+									type="text"
+									id="startDate{{index}}"
+									ng-model="experience.startDate"
+									container="body"
+									format="dd/mm/yyyy"
+									select-years="15"
+									/>
+							</div>
+						</div>
+						<div class="col s6 m4">
+							<div class="input-field" ng-show="!experience.isCurrent">
+								<label for="startDate{{index}}">Date de fin</label>
+								<input input-date
+									type="text"
+									id="endDate{{index}}"
+									ng-model="experience.endDate"
+									container="body"
+									format="dd/mm/yyyy"
+									select-years="15"
+									/>
+							</div>
+							<div input-field ng-show="experience.isCurrent">
+								<input type="text" value="Aujourd'hui" readonly>
+								<label>Date de fin</label>
+							</div>
+						</div>
+					</div>
+					<div class="input-field">
+						<textarea id="description{{$index}}" class="materialize-textarea" ng-model="experience.description"></textarea>
+						<label for="description{{$index}}">Description</label>
+					</div>
+					<div class="row">
+						<div input-field class="col m4 s12">
+							<input type="text" ng-model="experience.company">
+							<label>Entreprise/Ecole</label>
+						</div>
+						<div input-field class="col m4 s6">
+							<input type="text" ng-model="experience.city">
+							<label>Ville</label>
+						</div>
+						<div input-field class="col m4 s6">
+							<input type="text" ng-model="experience.country">
+							<label>Pays</label>
+						</div>
+					</div>
+				</div>
+				<div class="card-action">
+					<a class="btn-flat waves-effect waves-light" ng-click="vm.update(experience)">Sauvegarder</a>
+					<a class="btn-flat waves-effect waves-light" ng-click="vm.remove(experience)">Supprimer</a>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div id="new-experience-form" class="collapsible-header">
+				<i class="material-icons">add</i>
+				<span class="truncate">Nouvelle experience</span>
+			</div>
+			<div class="collapsible-body card">
+				<div class="card-content">
+					<div class="row">
+						<div class="col m6">
+							<div input-field>
+								<input type="text" ng-model="vm.newExperience.title">
+								<label>Titre</label>
+							</div>
+						</div>
+						<div class="col m6">
+							<div class="input-field">
+								<select class="" ng-model="vm.newExperience.type" material-select watch>
+								    <option ng-repeat="type in vm.types" value="{{type._id}}">{{type.name}}</option>
+								</select>
+								<label>Type</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="checkbox-field col s12 m4">
+							<input type="checkbox" id="isCurrentNew" ng-model="vm.newExperience.isCurrent" />
+							<label for="isCurrentNew">Experience actuelle</label>
+						</div>
+						<div class="col s6 m4">
+							<div class="input-field">
+								<label for="startDateNew">Date de début</label>
+								<input input-date
+									type="text"
+									id="startDateNew"
+									ng-model="vm.newExperience.startDate"
+									container="body"
+									format="dd/mm/yyyy"
+									select-years="15"
+									/>
+							</div>
+						</div>
+						<div class="col s6 m4">
+							<div class="input-field" ng-show="!vm.newExperience.isCurrent">
+								<label for="endDateNew">Date de fin</label>
+								<input input-date
+									type="text"
+									id="endDateNew"
+									ng-model="vm.newExperience.endDate"
+									container="body"
+									format="dd/mm/yyyy"
+									select-years="15"
+									/>
+							</div>
+							<div input-field ng-show="vm.newExperience.isCurrent">
+								<input type="text" value="Aujourd'hui" readonly>
+								<label>Date de fin</label>
+							</div>
+						</div>
+					</div>
+					<div class="input-field col s12">
+						<textarea id="descriptionNew" class="materialize-textarea" ng-model="vm.newExperience.description"></textarea>
+						<label for="descriptionNew">Description</label>
+					</div>
+					<div class="row">
+						<div input-field class="col m4 s12">
+							<input type="text" ng-model="vm.newExperience.company">
+							<label>Entreprise/Ecole</label>
+						</div>
+						<div input-field class="col m4 s6">
+							<input type="text" ng-model="vm.newExperience.city">
+							<label>Ville</label>
+						</div>
+						<div input-field class="col m4 s6">
+							<input type="text" ng-model="vm.newExperience.country">
+							<label>Pays</label>
+						</div>
+					</div>
+				</div>
+				<div class="card-action">
+					<a ng-click="vm.create()" class="btn-flat waves-effect waves-light">Créer</a>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

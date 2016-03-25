@@ -1,0 +1,50 @@
+{
+  "name": "experience",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "isCurrent": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "type": {
+      "type": "belongsTo",
+      "model": "experienceType",
+      "foreignKey": "typeId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div id="contact" class="col l6 s12">
+      <h5 class="white-text">Contact</h5>
+      <p class="grey-text text-lighten-4">Vous pouvez me contacter par mail via le formulaire de contact.</p>
+      <form ng-submit="footer.submit()">
+        <div input-field>
+          <input id="email" type="email" ng-model="footer.contact.email" class="validate" required>
+          <label for="email">Email</label>
+        </div>
+        <div input-field>
+          <input id="subject" type="text" ng-model="footer.contact.subject" class="validate" required>
+          <label for="subject">Objet</label>
+        </div>
+        <div class="input-field">
+          <textarea id="message" class="materialize-textarea" ng-model="footer.contact.message" class="validate" required></textarea>
+          <label for="message">Message</label>
+        </div>
+        <input class="btn waves-effect waves-light blue lighten-2" type="submit" value="Envoyer">
+      </form>
+    </div>
+    <div class="col l4 offset-l2 s12">
+      <h5 class="white-text">Links</h5>
+      <ul>
+        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="footer-copyright">
+  <div class="container">
+  © 2016 Copyright Text
+  <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+  </div>
+</div>

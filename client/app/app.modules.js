@@ -4,9 +4,8 @@
 		.module('app', [
 			'ngAnimate',
 			'ui.router',
-            'angular-jwt',
-			'auth0', 
+      'angular-jwt',
 			'angular-storage',
-            'ngMaterial'
+      'ngMaterial'
 		]);
 })();

@@ -8,9 +8,9 @@
             controllerAs: "vm"
         });
 
-	LoginComponent.$inject = ['auth', 'loginService', "$state"];
+	LoginComponent.$inject = ['loginService', "$state"];
 
-	function LoginComponent(auth, loginService, $state) {
+	function LoginComponent(loginService, $state) {
 		var vm = this;
 
 		vm.reset = reset;
@@ -21,7 +21,7 @@
 		vm.password = '';
 
 		vm.showPassword = false;
-		
+
 		vm.isAuth = loginService.isAuthenticated;
 		function reset() {
 			auth.reset({
@@ -35,12 +35,12 @@
 			console.log("loading...");
 			loginService.login(vm.email, vm.password).then(function(response) {
 				console.log("logged !");
-				$state.go("main.downloads")
+				$state.go("home")
 			}).catch(function(error) {
 				console.log("error: "+ error);
 			});
 		}
-		
+
 		function logout() {
 			console.log("loading...");
 			loginService.logout().then(function(response) {

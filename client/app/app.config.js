@@ -30,6 +30,5 @@
 					  url: '/',
             component: 'home'
         });
-
     }
 })();

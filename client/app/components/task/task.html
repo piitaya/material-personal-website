@@ -1,0 +1,20 @@
+<md-card>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Lien">
+            <md-content layout-padding>
+                <form name="projectForm" ng-submit="vm.createLink()">
+                    <md-input-container class="md-block">
+                        <label>Lien</label>
+                        <input required md-no-asterisk ng-model="vm.infos.link">
+                    </md-input-container>
+                    <md-button type="submit" class="md-raised md-primary">Télécharger</md-button>
+                </form>
+            </md-content>
+        </md-tab>
+        <md-tab label="Torrent" ng-disabled="true">
+            <md-content class="md-padding">
+                A venir...
+            </md-content>
+        </md-tab>
+    </md-tabs>
+</md-card>

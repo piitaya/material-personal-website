@@ -1,0 +1,5 @@
+<div ng-show="vm.state == 'active'">
+    <ng-transclude></ng-transclude>
+    <md-button class="md-raised "ng-click="vm.prev()">Précédent</md-button>
+    <md-button class="md-raised md-primary" ng-click="vm.next()">Suivant</md-button>
+</div>

@@ -1,0 +1,22 @@
+<md-toolbar flex="none">
+    <div class="md-toolbar-tools">
+        <span>Sidenav</span>
+    </div>
+    <div class="md-toolbar-tools">
+        <span></span>
+    </div>
+    <div class="md-toolbar-tools">
+        <a ui-sref="main.account">Account</a>
+    </div>
+</md-toolbar>
+<md-content flex>
+    <ul class="menu-link">
+        <li ng-repeat="link in vm.links">
+            <md-button ui-sref="{{link.route}}" ng-click="vm.closeSidenav()" ui-sref-active="active">{{link.label}}</md-button>
+        </li>
+        <li>
+            <md-button ng-click="vm.logout()">Se deconnecter</md-button>
+        </li>
+    </ul> 
+    {{vm.route}}
+</md-content>

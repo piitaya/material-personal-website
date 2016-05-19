@@ -1,0 +1,35 @@
+<md-card md-whiteframe="2">
+    <!-- Movie Header -->
+    <md-card-header ng-if="vm.data.info.movie">
+        <md-card-avatar>
+           <md-icon class="md-avatar-icon">movie</md-icon>
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">{{vm.data.info.movie.title}}</span>
+            <span class="md-subhead">({{vm.data.info.movie.year}})</span>
+        </md-card-header-text>
+    </md-card-header>
+    
+    <!-- Show Header -->
+    <md-card-header ng-if="vm.data.info.show">
+        <md-card-avatar>
+           <md-icon class="md-avatar-icon">tv</md-icon>
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">{{vm.data.info.show.name}} Saison {{vm.data.info.show.season}} Episode {{vm.data.info.show.episode}}</span>
+            <span class="md-subhead">({{vm.data.info.show.year}})</span>
+        </md-card-header-text>
+    </md-card-header>
+    
+    <!--<img ng-src="img/washedout.png" class="md-card-image" alt="Washed Out" src="img/washedout.png">-->
+    <md-progress-linear md-mode="{{vm.mode}}" ng-value="vm.value"></md-progress-linear>
+    <md-card-actions layout="row" layout-align="end center">
+        <p>{{vm.value}}%</p>
+        <md-button class="md-icon-button" ng-click="vm.toggleIcon()">
+            <md-icon aria-label="{{vm.icon}}" >{{vm.icon}}</md-icon>
+        </md-button>
+        <md-button class="md-icon-button">
+            <md-icon aria-label="delete" >delete</md-icon>
+        </md-button>
+    </md-card-actions>
+</md-card>

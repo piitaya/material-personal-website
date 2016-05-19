@@ -1,0 +1,14 @@
+<h1>Account</h1>
+
+<md-list>        
+    <md-subheader class="md-no-sticky">Services externes</md-subheader>
+    <md-list-item ng-repeat="service in vm.services">
+        <md-icon>{{service.icon}}</md-icon>
+        <p>{{service.label}}</p>
+        <p ng-if="service.data.state == 'connected'">Connecté</p>
+        <p ng-if="service.data.state == 'disconnected'">Déconnecté</p>
+        <p ng-if="service.data.state == 'waiting'">Connexion...</p>
+        <oauth2 service="{{service.name}}" data="service.data"></oauth2>
+    </md-list-item>
+    <md-divider></md-divider>
+</md-list>

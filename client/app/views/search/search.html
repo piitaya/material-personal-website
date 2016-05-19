@@ -1,0 +1,25 @@
+<h1>Search Component</h1>
+
+<md-card>
+    <div layout="row" layout-fill class="search-input">
+        <md-icon class='search'>search</md-icon>
+        <input flex ng-model="vm.query" ng-change="vm.getResult()">
+        <button ng-click="vm.query = ''">
+            <md-icon class='clear' ng-if="vm.query">clear</md-icon>
+        </button>
+    </div>
+</md-card>
+
+<md-grid-list class="search-result"
+    md-cols-xs="2" md-cols-sm="3" md-cols-md="4" md-cols-gt-md="7"
+    md-row-height="2:3" md-gutter="12px">
+        <md-grid-tile md-rowspan-gt-md="{{$first ? 2 : 1}}" md-colspan-gt-md="{{$first ? 2 : 1}}" ng-repeat="item in vm.items" 
+            ng-click="vm.openItem(item)" >
+          <div class="grid-image">
+            <img ng-src="{{item.images.poster.thumb}}">
+        </div>
+        <md-grid-tile-footer>
+            <h3>{{item.title}}<span ng-if="item.year"> ({{item.year}})</span></h3>
+        </md-grid-tile-footer>
+    </md-grid-tile>
+</md-grid-list>

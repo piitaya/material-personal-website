@@ -1,5 +1,3 @@
-'use strict';
- 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var connect = require('gulp-connect');
@@ -17,12 +15,17 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch('./sass/**/*.scss', ['sass']);
+	gulp.watch('./sass/**/*.scss', ['sass','reload']);
+
+});
+
+gulp.task('reload',function(){
+	connect.reload();
 });
 
 gulp.task('webserver', function() {
 	connect.server({
-		port: 8181,
+		port: 3001,
 		livereload: true
 	});
 });

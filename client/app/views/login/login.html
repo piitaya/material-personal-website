@@ -1,0 +1,25 @@
+<div class="login-content" layout="row" layout-align="center center">
+    <form ng-submit="vm.login()">
+        <md-card>
+            <md-card-content>
+                <div class="login-title">
+                    <md-icon>movie</md-icon>
+                    <h1>Syno Media</h1>
+                </div>
+                <md-input-container class="md-block">
+                    <label>Email</label>
+                    <md-icon>person</md-icon>
+                    <input type="text" name="email" ng-model="vm.email" />
+                    
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block md-icon-right md-icon-left">
+                    <label>Mot de passe</label>
+                    <md-icon>lock</md-icon>
+                    <input type="{{vm.showPassword ? 'text' : 'password'}}" name="password" ng-model="vm.password" />
+                    <md-icon class="show-password-icon" ng-click="vm.showPassword = !vm.showPassword">remove_red_eye</md-icon>
+                </md-input-container>
+            </md-card-content>
+            <md-button class="md-raised md-primary" type="submit" >Connexion</md-button>
+        </md-card>
+   </form>
+</div>

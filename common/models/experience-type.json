@@ -3,18 +3,21 @@
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
-    "validateUpsert": true
+    "validateUpsert": true,
+    "promisify": true
   },
   "properties": {
     "name": {
       "type": "string",
       "required": true
     },
-    "icon": {
-      "type": "string"
-    },
-    "color": {
-      "type": "string"
+    "style": {
+      "icon": {
+        "type": "string"
+      },
+      "color": {
+        "type": "string"
+      }
     }
   },
   "validations": [],

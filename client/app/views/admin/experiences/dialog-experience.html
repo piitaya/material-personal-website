@@ -31,9 +31,13 @@
             <label>Date de début</label>
             <input type="date" ng-model="vm.experience.startDate">
           </md-input-container>
-          <md-input-container class="md-block" flex>
+          <md-input-container class="md-block" flex ng-if="!vm.experience.isCurrent" >
             <label>Date de fin</label>
             <input type="date" ng-model="vm.experience.endDate">
+          </md-input-container>
+          <md-input-container class="md-block" flex ng-if="vm.experience.isCurrent" >
+            <label>Date de fin</label>
+            <input type="text" value="Aujourd'hui" disabled>
           </md-input-container>
         </div>
         <div layout="row" >

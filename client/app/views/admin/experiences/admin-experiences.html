@@ -1,5 +1,3 @@
-<div ng-repeat="experience in vm.experiences">{{experience}}</div>
-
 <md-card>
   <md-list>
     <md-subheader class="md-no-sticky">Experiences</md-subheader>
@@ -7,7 +5,7 @@
       <md-icon>work</md-icon>
       <div class="md-list-item-text">
         <h3>{{experience.title}} - {{experience.company}}</h3>
-        <p>{{experience.startDate | date:"longDate"}} - {{experience.endDate | date:"longDate"}}</p>
+        <p>{{experience.startDate | date:"longDate"}} - <span ng-if="!experience.isCurrent">{{experience.endDate | date:"longDate"}}</span><span ng-if="experience.isCurrent">Aujourd'hui</span></p>
       </div>
       <md-icon ng-click="vm.edit($event, $index)" class="md-secondary md-hue-3">edit</md-icon>
     </md-list-item>

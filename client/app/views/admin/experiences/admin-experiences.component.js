@@ -8,16 +8,12 @@
         controllerAs: "vm"
     });
 
-	AdminExperiencesComponent.$inject = ["Experience", "ExperienceType", "$mdDialog", "$scope"];
+	AdminExperiencesComponent.$inject = ["Experience", "ExperienceType", "$mdDialog", "$mdToast"];
 
-	function AdminExperiencesComponent(Experience, ExperienceType, $mdDialog, $scope) {
+	function AdminExperiencesComponent(Experience, ExperienceType, $mdDialog, $mdToast) {
 		var vm = this;
 
     Experience.find({}).$promise.then(function(experiences) {
-			angular.forEach(experiences, function(experience) {
-					experience.startDate = new Date(experience.startDate);
-					experience.endDate = new Date(experience.endDate);
-			});
 			vm.experiences = experiences;
     });
 
@@ -36,25 +32,39 @@
          },
 		  })
 		  .then(function(editedExperience) {
-			  console.log("save");
 				vm.experiences[index] = angular.copy(editedExperience);
+				vm.experiences[index].$save().then(function() {
+					$mdToast.show($mdToast.simple().textContent("Experience mise à jour."));
+				}).catch(function(err) {
+					$mdToast.show($mdToast.simple().textContent("Erreur lors de la mise à jour de l'experience."));
+				});
 		  }, function() {
-		    console.log("cancel")
 		  });
 		};
 
 	}
 })();
 
-function DialogController($scope, $mdDialog, experience) {
+function DialogController($mdDialog, experience) {
 	var vm = this;
 
 	vm.experience = angular.copy(experience);
+	if (vm.experience.startDate) {
+		vm.experience.startDate = new Date(vm.experience.startDate);
+	}
+	if (vm.experience.endDate) {
+		vm.experience.endDate = new Date(vm.experience.endDate);
+	}
 
+	if (vm.experience)
   vm.cancel = function() {
     $mdDialog.cancel();
   };
   vm.save = function() {
+		// Set endDate to null if experience is current experience
+		if (vm.experience.isCurrent) {
+			vm.experience.endDate = null;
+		}
     $mdDialog.hide(vm.experience);
   };
 }

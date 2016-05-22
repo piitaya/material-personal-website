@@ -18,8 +18,8 @@
           </md-input-container>
           <md-input-container class="md-block" flex>
             <label>Type</label>
-            <md-select ng-model="vm.experience.type">
-              <md-option ng-repeat="type in ['Formation', 'Emploi', 'Stage']" value="{{type}}">{{type}}</md-option>
+            <md-select ng-model="vm.experience.typeId">
+              <md-option ng-repeat="type in vm.types" value="{{type.id}}">{{type.name}}</md-option>
             </md-select>
           </md-input-container>
         </div>

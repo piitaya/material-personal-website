@@ -45,7 +45,15 @@
 
 				.state ('admin.experiences', {
 					  url: '/experiences',
-            component: 'adminExperiences'
+            component: 'adminExperiences',
+						resolve: {
+								experiences: function(Experience) {
+									return Experience.find({}).$promise;
+								},
+								types: function(ExperienceType) {
+									return ExperienceType.find({}).$promise;
+								},
+						}
         });
 
 

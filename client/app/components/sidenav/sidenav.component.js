@@ -20,8 +20,17 @@
             label: "Home",
             route: 'home',
         }, {
-            label: "Admin",
+            label: "Experiences",
             route: 'admin.experiences',
+        }, {
+            label: "Types d'experiences",
+            route: 'admin.experience-types'
+        }, {
+            label: "Compétences",
+            route: 'admin.skills'
+        }, {
+            label: "Types de compétences",
+            route: 'admin.skill-types'
         }];
 
         vm.$onInit = function() {

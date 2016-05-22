@@ -1,13 +1,16 @@
 <md-card>
   <md-list>
     <md-subheader class="md-no-sticky">Experiences</md-subheader>
-    <md-list-item ng-repeat="experience in vm.experiences" class="md-2-line">
-      <md-icon>work</md-icon>
+    <md-list-item ng-repeat="experience in vm.experiences | orderBy : '-startDate'" class="md-2-line" ng-click="vm.edit($event, experience)">
+      <md-icon>{{vm.typesMap[experience.typeId].style.icon}}</md-icon>
       <div class="md-list-item-text">
         <h3>{{experience.title}} - {{experience.company}}</h3>
         <p>{{experience.startDate | date:"longDate"}} - <span ng-if="!experience.isCurrent">{{experience.endDate | date:"longDate"}}</span><span ng-if="experience.isCurrent">Aujourd'hui</span></p>
       </div>
-      <md-icon ng-click="vm.edit($event, $index)" class="md-secondary md-hue-3">edit</md-icon>
+      <md-icon class="md-secondary md-hue-3" ng-click="vm.delete($event, experience)">delete</md-icon>
     </md-list-item>
   </md-list>
 </md-card>
+<md-button class="md-accent md-fab md-fab-bottom-right" ng-click="vm.new($event)">
+  <md-icon>add</md-icon>
+</md-button>

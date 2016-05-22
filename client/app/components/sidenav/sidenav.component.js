@@ -3,34 +3,34 @@
 	angular
 		.module('app')
 		.component('sidenav', {
-            templateUrl: 'app/components/sidenav/sidenav.html',
-            controller: SidenavComponent,
-            controllerAs: "vm"
-        });
+		    templateUrl: 'app/components/sidenav/sidenav.html',
+		    controller: SidenavComponent,
+		    controllerAs: "vm"
+		});
 
 	SidenavComponent.$inject = ["$mdSidenav", "loginService", "$state"];
 
 	function SidenavComponent($mdSidenav, loginService, $state) {
 		var vm = this;
-		 
+
         vm.closeSidenav = closeSidenav;
         vm.logout = logout;
-        
+
         vm.links = [{
-            label: "Téléchargements",
-            route: 'main.downloads',  
+            label: "Home",
+            route: 'home',
         }, {
-            label: "Rechercher",
-            route: 'main.search({type: "movie"})',
+            label: "Admin",
+            route: 'admin.experiences',
         }];
-        
+
         vm.$onInit = function() {
         };
-        
+
         function closeSidenav() {
            $mdSidenav('sidenav').close();
         }
-        
+
         function logout() {
             loginService.logout().then(function() {
                 console.log("loggout");

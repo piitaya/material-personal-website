@@ -6,6 +6,7 @@
 			'ui.router',
       'angular-jwt',
 			'angular-storage',
-      'ngMaterial'
+      'ngMaterial',
+			'lbServices'
 		]);
 })();

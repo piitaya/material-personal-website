@@ -1,0 +1,71 @@
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{vm.experience.title}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.cancel()">
+          <md-icon aria-label="Close dialog">close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content" class="md-inline-form">
+        <div layout="row" >
+          <md-input-container class="md-block" flex>
+            <label>Titre</label>
+            <input ng-model="vm.experience.title">
+          </md-input-container>
+          <md-input-container class="md-block" flex>
+            <label>Type</label>
+            <md-select ng-model="vm.experience.type">
+              <md-option ng-repeat="type in ['Formation', 'Emploi', 'Stage']" value="{{type}}">{{type}}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+        <md-switch ng-model="vm.experience.isCurrent" aria-label="Switch 1">
+          Experience actuelle
+        </md-switch>
+        <div layout="row">
+          <md-input-container class="md-block" flex>
+            <label>Date de début</label>
+            <input type="date" ng-model="vm.experience.startDate">
+          </md-input-container>
+          <md-input-container class="md-block" flex>
+            <label>Date de fin</label>
+            <input type="date" ng-model="vm.experience.endDate">
+          </md-input-container>
+        </div>
+        <div layout="row" >
+          <md-input-container class="md-block" flex>
+            <label>Description</label>
+            <textarea ng-model="vm.experience.description" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+        </div>
+        <div layout="row" >
+          <md-input-container class="md-block" flex>
+            <label>Entreprise/Ecole</label>
+            <input ng-model="vm.experience.company">
+          </md-input-container>
+          <md-input-container class="md-block" flex>
+            <label>Ville</label>
+            <input ng-model="vm.experience.city">
+          </md-input-container>
+          <md-input-container class="md-block" flex>
+            <label>Pays</label>
+            <input ng-model="vm.experience.country">
+          </md-input-container>
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="vm.cancel()">
+        Annuler
+      </md-button>
+      <md-button ng-click="vm.save()">
+        Enregistrer
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

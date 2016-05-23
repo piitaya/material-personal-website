@@ -19,3 +19,4 @@ node_modules
 npm-debug.log
 client/assets/libs/bower_components
 server/datasources.json
+manifest.yml

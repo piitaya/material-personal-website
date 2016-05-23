@@ -122,30 +122,30 @@
 		  });
 		}
 	}
-})();
 
-function DialogController($mdDialog, experience, types) {
-	var vm = this;
+	function DialogController($mdDialog, experience, types) {
+		var vm = this;
 
-	vm.types = types;
-	vm.experience = angular.copy(experience);
-	if (vm.experience.startDate) {
-		vm.experience.startDate = new Date(vm.experience.startDate);
-	}
-	if (vm.experience.endDate) {
-		vm.experience.endDate = new Date(vm.experience.endDate);
-	}
-	vm.experience.isCurrent = vm.experience.isCurrent ? true : false;
-
-	if (vm.experience)
-  vm.cancel = function() {
-    $mdDialog.cancel();
-  };
-  vm.save = function() {
-		// Set endDate to null if experience is current experience
-		if (vm.experience.isCurrent) {
-			vm.experience.endDate = null;
+		vm.types = types;
+		vm.experience = angular.copy(experience);
+		if (vm.experience.startDate) {
+			vm.experience.startDate = new Date(vm.experience.startDate);
 		}
-    $mdDialog.hide(vm.experience);
-  };
-}
+		if (vm.experience.endDate) {
+			vm.experience.endDate = new Date(vm.experience.endDate);
+		}
+		vm.experience.isCurrent = vm.experience.isCurrent ? true : false;
+
+		if (vm.experience)
+	  vm.cancel = function() {
+	    $mdDialog.cancel();
+	  };
+	  vm.save = function() {
+			// Set endDate to null if experience is current experience
+			if (vm.experience.isCurrent) {
+				vm.experience.endDate = null;
+			}
+	    $mdDialog.hide(vm.experience);
+	  };
+	}
+})();

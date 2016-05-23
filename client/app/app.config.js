@@ -52,10 +52,18 @@
 								},
 								types: function(ExperienceType) {
 									return ExperienceType.find({}).$promise;
-								},
+								}
+						}
+        })
+
+				.state ('admin.experience-types', {
+					  url: '/experience-types',
+            component: 'adminExperienceTypes',
+						resolve: {
+								types: function(ExperienceType) {
+									return ExperienceType.find({}).$promise;
+								}
 						}
         });
-
-
     }
 })();

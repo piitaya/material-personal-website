@@ -1,11 +1,9 @@
 <md-card>
   <md-list>
     <md-subheader class="md-no-sticky">Types d'experiences</md-subheader>
-    <md-list-item ng-repeat="type in vm.types | orderBy : 'name'" class="md-2-line" ng-click="vm.edit($event, type)">
+    <md-list-item ng-repeat="type in vm.types | orderBy : 'name'" ng-click="vm.edit($event, type)">
       <md-icon>{{type.style.icon}}</md-icon>
-      <div class="md-list-item-text">
-        <h3>{{type.name}}</h3>
-      </div>
+      <p>{{type.name}}</p>
       <md-icon class="md-secondary md-hue-3" ng-click="vm.delete($event, type)">delete</md-icon>
     </md-list-item>
   </md-list>

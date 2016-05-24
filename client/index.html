@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="theme-color" content="#2196F3">
-        <title>Personal Website</title>
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="assets/css/style.css">
+        <title dynamic-title>Personal Website</title>
     </head>
     <body>
         <ui-view></ui-view>
@@ -40,6 +40,8 @@
         <!-- Layout Component -->
         <script src="app/components/header/header.component.js"></script>
         <script src="app/components/sidenav/sidenav.component.js"></script>
+
+        <script src="app/components/dynamic-title/dynamic-title.directive.js"></script>
 
         <!-- Services -->
         <script src="app/views/login/login.service.js"></script>

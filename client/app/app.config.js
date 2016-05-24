@@ -24,17 +24,23 @@
 		    LoopBackResourceProvider.setAuthHeader('X-Access-Token');
 
 		    // Change the URL where to access the LoopBack REST API server
-		    LoopBackResourceProvider.setUrlBase('http://localhost:5000/api/');
+		    LoopBackResourceProvider.setUrlBase('/api');
 
         $stateProvider
         .state ('login', {
             url: '/login',
-            component: 'login'
+            component: 'login',
+						data: {
+							title: "Login"
+						}
         })
 
         .state ('home', {
 					  url: '/',
-            component: 'home'
+            component: 'home',
+						data: {
+							title: "Home"
+						}
         })
 
 				.state ('admin', {
@@ -53,6 +59,9 @@
 								types: function(ExperienceType) {
 									return ExperienceType.find({}).$promise;
 								}
+						},
+						data: {
+							title: "Experience"
 						}
         })
 
@@ -63,6 +72,9 @@
 								types: function(ExperienceType) {
 									return ExperienceType.find({}).$promise;
 								}
+						},
+						data: {
+							title: "Experience Type"
 						}
         });
     }

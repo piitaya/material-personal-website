@@ -44,14 +44,14 @@
 				editedExperience.$save().then(function(result) {
 					$mdToast.show(
 						$mdToast.simple()
-							.textContent("Experience mise à jour.")
+							.textContent("Expérience mise à jour.")
 							.position("bottom right")
 						);
 						vm.experiences[index] = result;
 				}).catch(function(err) {
 					$mdToast.show(
 						$mdToast.simple()
-							.textContent("Erreur lors de la mise à jour de l'experience.")
+							.textContent("Erreur lors de la mise à jour de l'expérience.")
 							.position("bottom right")
 					);
 				});
@@ -78,13 +78,13 @@
 					vm.experiences.push(result);
 					$mdToast.show(
 						$mdToast.simple()
-							.textContent("Experience créée.")
+							.textContent("Expérience créée.")
 							.position("bottom right")
 						);
 				}).catch(function(err) {
 					$mdToast.show(
 						$mdToast.simple()
-							.textContent("Erreur lors de la création de l'experience.")
+							.textContent("Erreur lors de la création de l'expérience.")
 							.position("bottom right")
 					);
 				});
@@ -96,9 +96,9 @@
 			event.stopPropagation();
 
 		  var confirm = $mdDialog.confirm()
-        .title("Êtes-vous sûr de supprimer cette experience?")
+        .title("Êtes-vous sûr de supprimer cette expérience?")
         .textContent('Cette action est définitive.')
-        .ariaLabel('Suppression experience')
+        .ariaLabel('Suppression expérience')
         .targetEvent(event)
         .ok('Oui')
         .cancel('Non');
@@ -108,13 +108,13 @@
 				vm.experiences.splice(index, 1);
 				$mdToast.show(
 					$mdToast.simple()
-						.textContent("Experience supprimée.")
+						.textContent("Expérience supprimée.")
 						.position("bottom right")
 					);
 				}).catch(function(err) {
 					$mdToast.show(
 						$mdToast.simple()
-							.textContent("Erreur lors de la suppression de l'experience.")
+							.textContent("Erreur lors de la suppression de l'expérience.")
 							.position("bottom right")
 					);
 				});
@@ -136,7 +136,6 @@
 		}
 		vm.experience.isCurrent = vm.experience.isCurrent ? true : false;
 
-		if (vm.experience)
 	  vm.cancel = function() {
 	    $mdDialog.cancel();
 	  };

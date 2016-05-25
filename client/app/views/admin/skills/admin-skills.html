@@ -1,0 +1,13 @@
+<md-card>
+  <md-list>
+    <md-subheader class="md-no-sticky">Compétences</md-subheader>
+    <md-list-item ng-repeat="skill in vm.skills | orderBy : '-startDate'" ng-click="vm.edit($event, skill)">
+      <md-icon>{{vm.typesMap[skill.typeId].style.icon}}</md-icon>
+      <p>{{skill.name}} - {{skill.value}}</p>
+      <md-icon class="md-secondary md-hue-3" ng-click="vm.delete($event, skill)">delete</md-icon>
+    </md-list-item>
+  </md-list>
+</md-card>
+<md-button class="md-accent md-fab md-fab-bottom-right" ng-click="vm.new($event)">
+  <md-icon>add</md-icon>
+</md-button>

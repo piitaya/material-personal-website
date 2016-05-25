@@ -1,0 +1,42 @@
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{vm.type.name}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.cancel()">
+          <md-icon aria-label="Close dialog">close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content" class="md-inline-form">
+        <div layout="row" >
+          <md-input-container class="md-block" flex>
+            <label>Nom</label>
+            <input ng-model="vm.type.name">
+          </md-input-container>
+        </div>
+        <div layout="row">
+          <md-input-container class="md-block" flex>
+            <label>Icone</label>
+            <input type="text" ng-model="vm.type.style.icon">
+          </md-input-container>
+          <md-input-container class="md-block" flex>
+            <label>Couleur</label>
+            <input type="text" ng-model="vm.type.style.color">
+          </md-input-container>
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="vm.cancel()">
+        Annuler
+      </md-button>
+      <md-button ng-click="vm.save()">
+        Enregistrer
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

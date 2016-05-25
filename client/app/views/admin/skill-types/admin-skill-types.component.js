@@ -2,18 +2,18 @@
 	'use strict';
 	angular
 		.module('app')
-		.component('adminExperienceTypes', {
-        templateUrl: 'app/views/admin/experience-types/admin-experience-types.html',
-        controller: AdminExperienceTypesComponent,
+		.component('adminSkillTypes', {
+        templateUrl: 'app/views/admin/skill-types/admin-skill-types.html',
+        controller: AdminSkillTypesComponent,
         controllerAs: "vm",
 				bindings: {
 					types: "<"
 				}
     });
 
-	AdminExperienceTypesComponent.$inject = ["$mdDialog", "$mdToast", "ExperienceType"];
+	AdminSkillTypesComponent.$inject = ["$mdDialog", "$mdToast", "SkillType"];
 
-	function AdminExperienceTypesComponent($mdDialog, $mdToast, ExperienceType) {
+	function AdminSkillTypesComponent($mdDialog, $mdToast, SkillType) {
 		var vm = this;
 
 		vm.edit = function(event, type) {
@@ -24,7 +24,7 @@
 		  $mdDialog.show({
 		    controller: DialogController,
 				controllerAs: "vm",
-		    templateUrl: 'app/views/admin/experience-types/dialog-expérience-type.html',
+		    templateUrl: 'app/views/admin/skill-types/dialog-skill-type.html',
 		    parent: angular.element(document.body),
 		    targetEvent: event,
 		    clickOutsideToClose: true,
@@ -37,14 +37,14 @@
 				editedType.$save().then(function(result) {
 					$mdToast.show(
 						$mdToast.simple()
-							.textContent("Type d'expérience mise à jour.")
+							.textContent("Type de compétence mise à jour.")
 							.position("bottom right")
 						);
 						vm.types[index] = result;
 				}).catch(function(err) {
 					$mdToast.show(
 						$mdToast.simple()
-							.textContent("Erreur lors de la mise à jour du type d'expérience.")
+							.textContent("Erreur lors de la mise à jour du type de compétence.")
 							.position("bottom right")
 					);
 				});
@@ -56,7 +56,7 @@
 		  $mdDialog.show({
 		    controller: DialogController,
 				controllerAs: "vm",
-		    templateUrl: 'app/views/admin/experience-types/dialog-experience-type.html',
+		    templateUrl: 'app/views/admin/skill-types/dialog-skill-type.html',
 		    parent: angular.element(document.body),
 		    targetEvent: event,
 		    clickOutsideToClose: true,
@@ -66,17 +66,17 @@
          },
 		  })
 		  .then(function(newType) {
-				ExperienceType.create(newType).$promise.then(function(result) {
+				SkillType.create(newType).$promise.then(function(result) {
 					vm.types.push(result);
 					$mdToast.show(
 						$mdToast.simple()
-							.textContent("Type d'expérience créée.")
+							.textContent("Type de compétence créée.")
 							.position("bottom right")
 						);
 				}).catch(function(err) {
 					$mdToast.show(
 						$mdToast.simple()
-							.textContent("Erreur lors de la création du type d'expérience.")
+							.textContent("Erreur lors de la création du type de compétence.")
 							.position("bottom right")
 					);
 				});
@@ -88,25 +88,25 @@
 			event.stopPropagation();
 
 		  var confirm = $mdDialog.confirm()
-        .title("Êtes-vous sûr de supprimer ce type d'expérience?")
+        .title("Êtes-vous sûr de supprimer ce type de compétence?")
         .textContent('Cette action est définitive.')
-        .ariaLabel("Suppression de type d'expérience")
+        .ariaLabel("Suppression de type de compétence")
         .targetEvent(event)
         .ok('Oui')
         .cancel('Non');
 		  $mdDialog.show(confirm).then(function() {
 				var index = vm.types.indexOf(type);
-	    	ExperienceType.deleteById({id: type.id}).$promise.then(function() {
+	    	SkillType.deleteById({id: type.id}).$promise.then(function() {
 				vm.types.splice(index, 1);
 				$mdToast.show(
 					$mdToast.simple()
-						.textContent("Type d'expérience supprimée.")
+						.textContent("Type de compétence supprimée.")
 						.position("bottom right")
 					);
 				}).catch(function(err) {
 					$mdToast.show(
 						$mdToast.simple()
-							.textContent("Erreur lors de la suppression du type d'expérience.")
+							.textContent("Erreur lors de la suppression du type de compétence.")
 							.position("bottom right")
 					);
 				});

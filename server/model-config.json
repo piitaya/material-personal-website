@@ -39,5 +39,13 @@
   "experienceType": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "skill": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "skillType": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }

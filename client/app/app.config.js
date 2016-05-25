@@ -61,7 +61,7 @@
 								}
 						},
 						data: {
-							title: "Experience"
+							title: "Expériences"
 						}
         })
 
@@ -74,7 +74,36 @@
 								}
 						},
 						data: {
-							title: "Experience Type"
+							title: "Types d'expérience"
+						}
+        })
+
+				.state ('admin.skills', {
+					  url: '/skills',
+            component: 'adminSkills',
+						resolve: {
+								skills: function(Skill) {
+									return Skill.find({}).$promise;
+								},
+								types: function(SkillType) {
+									return SkillType.find({}).$promise;
+								}
+						},
+						data: {
+							title: "Compétences"
+						}
+        })
+
+				.state ('admin.skill-types', {
+					  url: '/skill-types',
+            component: 'adminSkillTypes',
+						resolve: {
+								types: function(SkillType) {
+									return SkillType.find({}).$promise;
+								}
+						},
+						data: {
+							title: "Types de compétence"
 						}
         });
     }

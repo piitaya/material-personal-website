@@ -1,0 +1,48 @@
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{vm.skill.name}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.cancel()">
+          <md-icon aria-label="Close dialog">close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content" class="md-inline-form">
+        <div layout="row" >
+          <md-input-container class="md-block" flex>
+            <label>Nom</label>
+            <input ng-model="vm.skill.name">
+          </md-input-container>
+          <md-input-container class="md-block" flex>
+            <label>Type</label>
+            <md-select ng-model="vm.skill.typeId">
+              <md-option ng-repeat="type in vm.types" value="{{type.id}}">{{type.name}}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+        <div layout="row" >
+          <!-- <md-input-container class="md-block" flex="30">
+            <label>Valeur</label>
+            <input type="number" min="0" max="10" ng-model="vm.skill.value">
+          </md-input-container> -->
+          <md-input-container class="md-block" flex>
+            <md-slider flex md-discrete ng-model="vm.skill.value" step="5" min="0" max="100" aria-label="rating" class="md-primary">
+            </md-slider>
+          </md-input-container>
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="vm.cancel()">
+        Annuler
+      </md-button>
+      <md-button ng-click="vm.save()">
+        Enregistrer
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

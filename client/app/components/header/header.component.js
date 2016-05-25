@@ -5,7 +5,10 @@
 		.component('header', {
 		    templateUrl: 'app/components/header/header.html',
 		    controller: HeaderComponent,
-		    controllerAs: "vm"
+		    controllerAs: "vm",
+				bindings: {
+					menu: "<"
+				}
 		});
 
 	HeaderComponent.$inject = ["$mdSidenav"];

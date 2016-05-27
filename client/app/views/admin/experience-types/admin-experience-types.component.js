@@ -24,7 +24,7 @@
 		  $mdDialog.show({
 		    controller: DialogController,
 				controllerAs: "vm",
-		    templateUrl: 'app/views/admin/experience-types/dialog-expérience-type.html',
+		    templateUrl: 'app/views/admin/experience-types/dialog-experience-type.html',
 		    parent: angular.element(document.body),
 		    targetEvent: event,
 		    clickOutsideToClose: true,

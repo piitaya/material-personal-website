@@ -82,6 +82,10 @@ md-icon {
 .md-timeline .md-timeline-event .md-timeline-content {
   position: relative;
   width: calc(50% - 37px);
+  outline: none;
+  cursor: pointer;
+  transition: width 1s ease-in-out, margin 1s ease-in-out, padding 1s ease-in-out;
+  z-index: 2;
 }
 
 .md-timeline .md-timeline-event::after {
@@ -105,6 +109,19 @@ md-icon {
 
 .md-timeline .md-timeline-event:nth-child(odd) .md-timeline-content {
   margin-left: 0;
+}
+
+@media (min-width: 992px) {
+  .md-timeline .md-timeline-event .md-timeline-content.active {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.md-timeline .md-timeline-event .md-timeline-content.active {
+  padding-bottom: 8px;
+  padding-top: 30px;
 }
 
 .md-timeline .md-timeline-badge {
@@ -141,4 +158,10 @@ md-icon {
   .md-timeline .md-timeline-badge {
     left: 0;
   }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
 }

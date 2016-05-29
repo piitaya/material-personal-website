@@ -78,6 +78,10 @@ $timeline-badge-margin: 0px;
 		.md-timeline-content {
 			position: relative;
 			width: calc(50% - #{$timeline-badge-size/2 + 30px});
+      outline: none;
+      cursor: pointer;
+      transition: width 1s ease-in-out, margin 1s ease-in-out, padding 1s ease-in-out;
+      z-index: 2;
 		}
 
 		&::after {
@@ -106,6 +110,19 @@ $timeline-badge-margin: 0px;
 				margin-left: 0;
 			}
 		}
+
+    @media (min-width: $medium-screen) {
+        .md-timeline-content.active {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    .md-timeline-content.active {
+        padding-bottom: 8px;
+        padding-top: 30px;
+    }
 	}
 
 	.md-timeline-badge {
@@ -154,4 +171,10 @@ $timeline-badge-margin: 0px;
 		}
 
 	}
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
 }

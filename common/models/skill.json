@@ -19,7 +19,8 @@
   "relations": {
     "type": {
       "type": "belongsTo",
-      "model": "skillType"
+      "model": "skillType",
+      "foreignKey": "typeId"
     }
   },
   "acls": [],

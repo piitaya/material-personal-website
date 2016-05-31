@@ -1576,6 +1576,65 @@ module.factory(
           url: urlBase + "/experiences/change-stream",
           method: "POST"
         },
+
+        // INTERNAL. Use ExperienceType.experiences.findById() instead.
+        "::findById::experienceType::experiences": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/experienceTypes/:id/experiences/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.destroyById() instead.
+        "::destroyById::experienceType::experiences": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/experienceTypes/:id/experiences/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.updateById() instead.
+        "::updateById::experienceType::experiences": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/experienceTypes/:id/experiences/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences() instead.
+        "::get::experienceType::experiences": {
+          isArray: true,
+          url: urlBase + "/experienceTypes/:id/experiences",
+          method: "GET"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.create() instead.
+        "::create::experienceType::experiences": {
+          url: urlBase + "/experienceTypes/:id/experiences",
+          method: "POST"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.createMany() instead.
+        "::createMany::experienceType::experiences": {
+          isArray: true,
+          url: urlBase + "/experienceTypes/:id/experiences",
+          method: "POST"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.destroyAll() instead.
+        "::delete::experienceType::experiences": {
+          url: urlBase + "/experienceTypes/:id/experiences",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.count() instead.
+        "::count::experienceType::experiences": {
+          url: urlBase + "/experienceTypes/:id/experiences/count",
+          method: "GET"
+        },
       }
     );
 
@@ -1782,6 +1841,58 @@ module.factory(
       urlBase + "/experienceTypes/:id",
       { 'id': '@id' },
       {
+
+        // INTERNAL. Use ExperienceType.experiences.findById() instead.
+        "prototype$__findById__experiences": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/experienceTypes/:id/experiences/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.destroyById() instead.
+        "prototype$__destroyById__experiences": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/experienceTypes/:id/experiences/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.updateById() instead.
+        "prototype$__updateById__experiences": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/experienceTypes/:id/experiences/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences() instead.
+        "prototype$__get__experiences": {
+          isArray: true,
+          url: urlBase + "/experienceTypes/:id/experiences",
+          method: "GET"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.create() instead.
+        "prototype$__create__experiences": {
+          url: urlBase + "/experienceTypes/:id/experiences",
+          method: "POST"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.destroyAll() instead.
+        "prototype$__delete__experiences": {
+          url: urlBase + "/experienceTypes/:id/experiences",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use ExperienceType.experiences.count() instead.
+        "prototype$__count__experiences": {
+          url: urlBase + "/experienceTypes/:id/experiences/count",
+          method: "GET"
+        },
 
         /**
          * @ngdoc method
@@ -2352,6 +2463,307 @@ module.factory(
     */
     R.modelName = "ExperienceType";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.ExperienceType.experiences
+     * @header lbServices.ExperienceType.experiences
+     * @object
+     * @description
+     *
+     * The object `ExperienceType.experiences` groups methods
+     * manipulating `Experience` instances related to `ExperienceType`.
+     *
+     * Call {@link lbServices.ExperienceType#experiences ExperienceType.experiences()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.ExperienceType#experiences
+         * @methodOf lbServices.ExperienceType
+         *
+         * @description
+         *
+         * Queries experiences of experienceType.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Experience` object.)
+         * </em>
+         */
+        R.experiences = function() {
+          var TargetResource = $injector.get("Experience");
+          var action = TargetResource["::get::experienceType::experiences"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.ExperienceType.experiences#count
+         * @methodOf lbServices.ExperienceType.experiences
+         *
+         * @description
+         *
+         * Counts experiences of experienceType.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.experiences.count = function() {
+          var TargetResource = $injector.get("Experience");
+          var action = TargetResource["::count::experienceType::experiences"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.ExperienceType.experiences#create
+         * @methodOf lbServices.ExperienceType.experiences
+         *
+         * @description
+         *
+         * Creates a new instance in experiences of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Experience` object.)
+         * </em>
+         */
+        R.experiences.create = function() {
+          var TargetResource = $injector.get("Experience");
+          var action = TargetResource["::create::experienceType::experiences"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.ExperienceType.experiences#createMany
+         * @methodOf lbServices.ExperienceType.experiences
+         *
+         * @description
+         *
+         * Creates a new instance in experiences of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Experience` object.)
+         * </em>
+         */
+        R.experiences.createMany = function() {
+          var TargetResource = $injector.get("Experience");
+          var action = TargetResource["::createMany::experienceType::experiences"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.ExperienceType.experiences#destroyAll
+         * @methodOf lbServices.ExperienceType.experiences
+         *
+         * @description
+         *
+         * Deletes all experiences of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.experiences.destroyAll = function() {
+          var TargetResource = $injector.get("Experience");
+          var action = TargetResource["::delete::experienceType::experiences"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.ExperienceType.experiences#destroyById
+         * @methodOf lbServices.ExperienceType.experiences
+         *
+         * @description
+         *
+         * Delete a related item by id for experiences.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for experiences
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.experiences.destroyById = function() {
+          var TargetResource = $injector.get("Experience");
+          var action = TargetResource["::destroyById::experienceType::experiences"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.ExperienceType.experiences#findById
+         * @methodOf lbServices.ExperienceType.experiences
+         *
+         * @description
+         *
+         * Find a related item by id for experiences.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for experiences
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Experience` object.)
+         * </em>
+         */
+        R.experiences.findById = function() {
+          var TargetResource = $injector.get("Experience");
+          var action = TargetResource["::findById::experienceType::experiences"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.ExperienceType.experiences#updateById
+         * @methodOf lbServices.ExperienceType.experiences
+         *
+         * @description
+         *
+         * Update a related item by id for experiences.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for experiences
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Experience` object.)
+         * </em>
+         */
+        R.experiences.updateById = function() {
+          var TargetResource = $injector.get("Experience");
+          var action = TargetResource["::updateById::experienceType::experiences"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);
@@ -2808,6 +3220,65 @@ module.factory(
           url: urlBase + "/skills/change-stream",
           method: "POST"
         },
+
+        // INTERNAL. Use SkillType.skills.findById() instead.
+        "::findById::skillType::skills": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/skillTypes/:id/skills/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use SkillType.skills.destroyById() instead.
+        "::destroyById::skillType::skills": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/skillTypes/:id/skills/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use SkillType.skills.updateById() instead.
+        "::updateById::skillType::skills": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/skillTypes/:id/skills/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use SkillType.skills() instead.
+        "::get::skillType::skills": {
+          isArray: true,
+          url: urlBase + "/skillTypes/:id/skills",
+          method: "GET"
+        },
+
+        // INTERNAL. Use SkillType.skills.create() instead.
+        "::create::skillType::skills": {
+          url: urlBase + "/skillTypes/:id/skills",
+          method: "POST"
+        },
+
+        // INTERNAL. Use SkillType.skills.createMany() instead.
+        "::createMany::skillType::skills": {
+          isArray: true,
+          url: urlBase + "/skillTypes/:id/skills",
+          method: "POST"
+        },
+
+        // INTERNAL. Use SkillType.skills.destroyAll() instead.
+        "::delete::skillType::skills": {
+          url: urlBase + "/skillTypes/:id/skills",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use SkillType.skills.count() instead.
+        "::count::skillType::skills": {
+          url: urlBase + "/skillTypes/:id/skills/count",
+          method: "GET"
+        },
       }
     );
 
@@ -3014,6 +3485,58 @@ module.factory(
       urlBase + "/skillTypes/:id",
       { 'id': '@id' },
       {
+
+        // INTERNAL. Use SkillType.skills.findById() instead.
+        "prototype$__findById__skills": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/skillTypes/:id/skills/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use SkillType.skills.destroyById() instead.
+        "prototype$__destroyById__skills": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/skillTypes/:id/skills/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use SkillType.skills.updateById() instead.
+        "prototype$__updateById__skills": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/skillTypes/:id/skills/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use SkillType.skills() instead.
+        "prototype$__get__skills": {
+          isArray: true,
+          url: urlBase + "/skillTypes/:id/skills",
+          method: "GET"
+        },
+
+        // INTERNAL. Use SkillType.skills.create() instead.
+        "prototype$__create__skills": {
+          url: urlBase + "/skillTypes/:id/skills",
+          method: "POST"
+        },
+
+        // INTERNAL. Use SkillType.skills.destroyAll() instead.
+        "prototype$__delete__skills": {
+          url: urlBase + "/skillTypes/:id/skills",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use SkillType.skills.count() instead.
+        "prototype$__count__skills": {
+          url: urlBase + "/skillTypes/:id/skills/count",
+          method: "GET"
+        },
 
         /**
          * @ngdoc method
@@ -3584,6 +4107,307 @@ module.factory(
     */
     R.modelName = "SkillType";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.SkillType.skills
+     * @header lbServices.SkillType.skills
+     * @object
+     * @description
+     *
+     * The object `SkillType.skills` groups methods
+     * manipulating `Skill` instances related to `SkillType`.
+     *
+     * Call {@link lbServices.SkillType#skills SkillType.skills()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SkillType#skills
+         * @methodOf lbServices.SkillType
+         *
+         * @description
+         *
+         * Queries skills of skillType.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Skill` object.)
+         * </em>
+         */
+        R.skills = function() {
+          var TargetResource = $injector.get("Skill");
+          var action = TargetResource["::get::skillType::skills"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SkillType.skills#count
+         * @methodOf lbServices.SkillType.skills
+         *
+         * @description
+         *
+         * Counts skills of skillType.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.skills.count = function() {
+          var TargetResource = $injector.get("Skill");
+          var action = TargetResource["::count::skillType::skills"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SkillType.skills#create
+         * @methodOf lbServices.SkillType.skills
+         *
+         * @description
+         *
+         * Creates a new instance in skills of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Skill` object.)
+         * </em>
+         */
+        R.skills.create = function() {
+          var TargetResource = $injector.get("Skill");
+          var action = TargetResource["::create::skillType::skills"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SkillType.skills#createMany
+         * @methodOf lbServices.SkillType.skills
+         *
+         * @description
+         *
+         * Creates a new instance in skills of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Skill` object.)
+         * </em>
+         */
+        R.skills.createMany = function() {
+          var TargetResource = $injector.get("Skill");
+          var action = TargetResource["::createMany::skillType::skills"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SkillType.skills#destroyAll
+         * @methodOf lbServices.SkillType.skills
+         *
+         * @description
+         *
+         * Deletes all skills of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.skills.destroyAll = function() {
+          var TargetResource = $injector.get("Skill");
+          var action = TargetResource["::delete::skillType::skills"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SkillType.skills#destroyById
+         * @methodOf lbServices.SkillType.skills
+         *
+         * @description
+         *
+         * Delete a related item by id for skills.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for skills
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.skills.destroyById = function() {
+          var TargetResource = $injector.get("Skill");
+          var action = TargetResource["::destroyById::skillType::skills"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SkillType.skills#findById
+         * @methodOf lbServices.SkillType.skills
+         *
+         * @description
+         *
+         * Find a related item by id for skills.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for skills
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Skill` object.)
+         * </em>
+         */
+        R.skills.findById = function() {
+          var TargetResource = $injector.get("Skill");
+          var action = TargetResource["::findById::skillType::skills"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.SkillType.skills#updateById
+         * @methodOf lbServices.SkillType.skills
+         *
+         * @description
+         *
+         * Update a related item by id for skills.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for skills
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Skill` object.)
+         * </em>
+         */
+        R.skills.updateById = function() {
+          var TargetResource = $injector.get("Skill");
+          var action = TargetResource["::updateById::skillType::skills"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);

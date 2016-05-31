@@ -1,0 +1,18 @@
+<div layout="row" layout-wrap>
+  <div ng-repeat="type in vm.types" flex="33">
+    <md-card style="height: 100%">
+      <md-card-header>
+        <md-card-avatar>
+          <md-icon class="md-avatar-icon">{{type.style.icon}}</md-icon>
+        </md-card-avatar>
+        <md-card-header-text>
+          <span class="md-title">{{type.name}}</span>
+        </md-card-header-text>
+      </md-card-header>
+      <md-card-content>
+        <p ng-repeat="skill in type.skills | orderBy:'-value'">{{skill.name}} - {{skill.value}}%</p>
+        <p>{{experience.city}} {{experience.country}}</p>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>

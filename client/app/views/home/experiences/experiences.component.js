@@ -5,10 +5,7 @@
 		.component('experiences', {
         templateUrl: 'app/views/home/experiences/experiences.html',
         controller: ExperiencesComponent,
-        controllerAs: "vm",
-				bindings: {
-					experiences: "<"
-				}
+        controllerAs: "vm"
     });
 
 	ExperiencesComponent.$inject = ["Experience"];

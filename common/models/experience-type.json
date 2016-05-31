@@ -20,8 +20,13 @@
       }
     }
   },
-  "validations": [],
-  "relations": {},
+  "relations": {
+    "experiences": {
+      "type": "hasMany",
+      "model": "experience",
+      "foreignKey": "typeId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

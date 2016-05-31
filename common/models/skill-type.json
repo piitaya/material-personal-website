@@ -18,7 +18,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "skills": {
+      "type": "hasMany",
+      "model": "skill",
+      "foreignKey": "typeId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

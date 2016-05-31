@@ -111,7 +111,7 @@ md-icon {
   margin-left: 0;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 601px) {
   .md-timeline .md-timeline-event .md-timeline-content.active {
     width: 100%;
     margin-left: 0;

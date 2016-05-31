@@ -111,7 +111,7 @@ $timeline-badge-margin: 0px;
 			}
 		}
 
-    @media (min-width: $medium-screen) {
+    @media (min-width: $small-screen-up) {
         .md-timeline-content.active {
             width: 100%;
             margin-left: 0;

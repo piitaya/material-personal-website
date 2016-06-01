@@ -11,5 +11,25 @@
       "username": "",
       "password": "",
       "port":
+  },
+  "storage-local": {
+      "name": "storage",
+      "connector": "loopback-component-storage",
+      "provider": "filesystem",
+      "root": "./server/storage"
+  },
+  "storage": {
+      "name": "storage",
+      "connector": "loopback-component-storage",
+      "provider": "openstack",
+      "authUrl": "https://identity.open.softlayer.com",
+      "region": "",
+      "tenantId": "",
+      "tenantName": "",
+      "username": "",
+      "password": "",
+      "domainId": "",
+      "domainName": "",
+      "keystoneAuthVersion": "v3"
   }
 }

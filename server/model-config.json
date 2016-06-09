@@ -32,10 +32,6 @@
     "dataSource": "db",
     "public": false
   },
-  "container": {
-    "dataSource": "storage",
-    "public": true
-  },
   "experience": {
     "dataSource": "mongodb",
     "public": true
@@ -50,6 +46,10 @@
   },
   "skillType": {
     "dataSource": "mongodb",
+    "public": true
+  },
+  "image": {
+    "dataSource": "cloudinary",
     "public": true
   }
 }

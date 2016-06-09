@@ -1,35 +1,44 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
-  "mongodb": {
-      "name": "mongodb",
-      "connector": "mongodb",
-      "host": "",
-      "database": "",
-      "username": "",
-      "password": "",
-      "port":
-  },
-  "storage-local": {
-      "name": "storage",
-      "connector": "loopback-component-storage",
-      "provider": "filesystem",
-      "root": "./server/storage"
-  },
-  "storage": {
-      "name": "storage",
-      "connector": "loopback-component-storage",
-      "provider": "openstack",
-      "authUrl": "https://identity.open.softlayer.com",
-      "region": "",
-      "tenantId": "",
-      "tenantName": "",
-      "username": "",
-      "password": "",
-      "domainId": "",
-      "domainName": "",
-      "keystoneAuthVersion": "v3"
-  }
+    "db": {
+      "name": "db",
+      "connector": "memory"
+    },
+    "mongodb": {
+        "name": "mongodb",
+        "connector": "mongodb",
+        "host": "",
+        "database": "",
+        "username": "",
+        "password": "",
+        "port":
+    },
+    "storage-local": {
+        "name": "storage",
+        "connector": "loopback-component-storage",
+        "provider": "filesystem",
+        "root": "./server/storage"
+    },
+    "storage": {
+        "name": "storage",
+        "connector": "loopback-component-storage",
+        "provider": "openstack",
+        "authUrl": "https://identity.open.softlayer.com",
+        "region": "",
+        "tenantId": "",
+        "tenantName": "",
+        "username": "",
+        "password": "",
+        "domainId": "",
+        "domainName": "",
+        "keystoneAuthVersion": "v3"
+    },
+    "cloudinary": {
+        "name": "cloudinary",
+        "connector": "@kolach/loopback-component-cloudinary",
+        "config": {
+            "cloud_name": "",
+            "api_key": "",
+            "api_secret": ""
+        }
+    }
 }

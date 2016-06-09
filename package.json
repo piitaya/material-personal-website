@@ -9,9 +9,9 @@
     "posttest": "nsp check"
   },
   "dependencies": {
+    "@kolach/loopback-component-cloudinary": "git+https://github.com/piitaya/loopback-component-cloudinary.git",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
-    "gulp-connect": "^3.2.1",
     "helmet": "^0.14.0",
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
@@ -27,7 +27,8 @@
     "jshint": "^2.5.6",
     "nsp": "^2.1.0",
     "gulp": "^3.9.0",
-    "gulp-sass": "^2.1.1"
+    "gulp-sass": "^2.1.1",
+    "gulp-connect": "^3.2.1"
   },
   "repository": {
     "type": "",

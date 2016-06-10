@@ -48,8 +48,8 @@
     "dataSource": "mongodb",
     "public": true
   },
-  "image": {
-    "dataSource": "cloudinary",
+  "container": {
+    "dataSource": "storage-local",
     "public": true
   }
 }
